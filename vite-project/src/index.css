@@ -1,0 +1,15 @@
+/* Fichero de estilos globales, poner los transversales */
+
+*{
+    box-sizing: border-box;
+
+}
+boby{
+    margin: 0;
+}
+
+/* PAra quitar las bolitas a las listas,  */
+ul{
+    list-style: none;
+    padding: 0px;
+}

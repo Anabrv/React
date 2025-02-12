@@ -1,0 +1,5 @@
+/* Fichero que aplica al componentes raiz App.jsx */
+/* Lo ideal es tener un selector especifico para cada componente */
+.main-content{
+    padding:30px;
+}
