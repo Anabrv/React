@@ -3,20 +3,20 @@ import React, { useState } from 'react'
 export default function Formulario({comparar}) {
 
     const comprobar= ()=>{
-        {comparar()}
+        comparar(num);
+        //console.log(num);
     }
     const[num,setNum] = useState();
+
     const modificar = (e) => {
-        setNum(e);
+     // console.log(e);
+      setNum(e.target.value);
     }
   return (
-    <>
     
-       <div className="guess-section">
-          
-          <input onChange="modificar()" type="number" id="guess" placeholder="Número" min="1" max="20"/>
-          <button onclick="comprobar()">Check!</button>
+    <div className="guess-section">
+        <input onChange={modificar} value={num} type="number" id="guess" placeholder="Número" min="1" max="20"/>
+        <button onClick={comprobar}>Check!</button>
     </div>
-    </>
   )
 }

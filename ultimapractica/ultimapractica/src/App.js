@@ -15,17 +15,21 @@ function App() {
     setNumSecreto(generarNumSecreto);
     setMensaje("Empiece a adivinar...");
     setPuntuacion(20);
+    document.body.style.backgroundColor="";
+
   }
 
   const comparar=(numero)=>{
+    
     if (!numero){
       setMensaje("Pon un número");
     } else if(Number(numero) == numSecreto){ /* hay que pasarlo si o si a número */
       setMensaje("Ganaste!");
       document.body.style.backgroundColor="green";
-      if(score<puntuacion){
-        setScore(puntuacion);
-      }
+
+        if(score<puntuacion){
+          setScore(puntuacion);
+        }
       
     } else if (Number(numero) < numSecreto){
       setMensaje("tu número es bajo");
@@ -40,22 +44,21 @@ function App() {
       document.body.style.backgroundColor="red";
     }
   }
-  const [numSecreto,setNumSecreto] = useState(); /* Declarar variable */
+
+  const [numSecreto,setNumSecreto] = useState(generarNumSecreto); /* Declarar variable */
   const [mensaje,setMensaje]=useState("Empiece adivinar...");
-  const [puntuacion,setPuntuacion]=useState();
+  const [puntuacion,setPuntuacion]=useState(20);
   const [score,setScore] =useState(0);
 
   return (
     <div className="container">
       <Reiniciar reiniciar={reiniciar}/>
-      <h1>¡Adivina mi número!{numSecreto}</h1>
+      <h1>¡Adivina mi número!</h1>
       
-      <Numerosecreto></Numerosecreto>
+      <Numerosecreto/>
       <br/>
-      <Formulario></Formulario>
-      <Puntuacion></Puntuacion>
-      
-    
+      <Formulario comparar={comparar}></Formulario>
+      <Puntuacion msj/* parametro */={mensaje} puntuacion={puntuacion} score={score}/>
      
     </div>
   );
